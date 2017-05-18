@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker - Atlassian Confluence container
+Requires=docker-atlassian-confluence-postgres.service
+After=docker-atlassian-confluence-postgres.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a atlassian-confluence
+ExecStop=/usr/bin/docker stop -t 2 atlassian-confluence
+
+[Install]
+WantedBy=default.target

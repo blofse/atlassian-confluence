@@ -1,4 +1,4 @@
-# atlassian-confluence
+# atlassian-confluence - A docker image containing version 6.2.0 based on alpine linux, with mysql / postgres support
 Restartable, persistent docker image for atlassian confluence
 
 Any feedback let me know - its all welcome!

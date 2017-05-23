@@ -46,7 +46,7 @@ This allows upgrading but also solves curruption issues which can happen with th
 Once initialised and perhaps migrated, the docker container can then be run as a service. 
 Included in the repo is the service for centos 7 based os's and to install run:
 ```
-./copy_install_and_start_as_service.sh
+./optional/copy_install_and_start_as_service.sh
 ```
 
 ## (optional) remove all (for this image)

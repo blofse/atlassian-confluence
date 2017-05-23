@@ -8,21 +8,32 @@ Any feedback let me know - its all welcome!
 Before running this docker image, please [clone / download the repo](https://github.com/blofse/atlassian-confluence), inlcuding the script files.
 
 # How to use this image
+## (optional) build docker image
+
+To build the local docker image, run the following command:
+
+```
+./optional/build_local.sh
+```
+
 ## Initialise
 
 Run the following command, replacing *** with your desired db password:
 ```
 ./initial_start.sh '***'
 ```
-This will setup two containers: 
-* atlassian-confluence-postgres - a container to store your confluence db data
-* atlassian-confluence - the container containing the confluence server
-And also two following persitent volumes:
-* ConfluencePostgresData - used for confluence db data
-* ConfluenceHomeVolume - used for confluence home directory.
+This will setup: 
+* Two containers: 
+	* atlassian-confluence-postgres - a container to store your confluence db data
+	* atlassian-confluence - the container containing the confluence server
+* Two Volumes:
+	* atlassian-confluence-postgres-data - used for confluence db data
+	* atlassian-confluence-home - used for confluence home directory.
+* A network:
+	* atlassian-confluence-network - a bridge network for confluence
 
 Once setup, please use the following for DB connectivity:
-* DB host: pgconfluence
+* DB host: atlassian-confluence-postgres
 * DB user: confluence
 * DB database: confluence
 * DB password: ****
@@ -38,3 +49,9 @@ Included in the repo is the service for centos 7 based os's and to install run:
 ./copy_install_and_start_as_service.sh
 ```
 
+## (optional) remove all (for this image)
+
+Running the command below will remove all trace of this docker image, services, containers, volumes and networks:
+
+```
+./optional/remove_all.sh

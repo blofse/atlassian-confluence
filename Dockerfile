@@ -1,13 +1,13 @@
 FROM openjdk:8-alpine
 
-ENV CONFLUENCE_VERSION=6.2.0 \
+ENV CONFLUENCE_VERSION=6.7.1 \
     CONFLUENCE_HOME=/var/atlassian/application-data/confluence \
     CONFLUENCE_INSTALL=/opt/atlassian/confluence \
     MYSQL_VERSION=5.1.38 \
     POSTGRES_VERSION=9.4.1212
     
 RUN set -x \
-    && apk add --no-cache wget libressl tar bash \
+    && apk add --no-cache wget libressl tar tzdata bash \
     && mkdir -p "${CONFLUENCE_HOME}" \
     && mkdir -p "${CONFLUENCE_INSTALL}/conf" \
     && wget -O "atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz" --no-verbose "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz" \
@@ -29,7 +29,8 @@ RUN set -x \
     && chmod -R 700 "${CONFLUENCE_INSTALL}/conf" \
     && chmod -R 700 "${CONFLUENCE_INSTALL}/logs" \
     && chmod -R 700 "${CONFLUENCE_INSTALL}/temp" \
-    && chmod -R 700 "${CONFLUENCE_INSTALL}/work"
+    && chmod -R 700 "${CONFLUENCE_INSTALL}/work" \
+    && cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
 # Expose default HTTP connector ports 
 EXPOSE 8090 8091

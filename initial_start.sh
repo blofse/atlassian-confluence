@@ -23,6 +23,7 @@ docker run \
   -p 8090:8090 \
   -p 8091:8091 \
   -v atlassian-confluence-home:/var/atlassian/application-data/confluence \
+  -v atlassian-confluence-conf:/opt/atlassian/confluence/conf \
   --net atlassian-confluence-network \
   -d \
   atlassian-confluence

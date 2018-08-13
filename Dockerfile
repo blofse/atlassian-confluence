@@ -7,7 +7,7 @@ ENV CONFLUENCE_VERSION=6.7.1 \
     POSTGRES_VERSION=9.4.1212
     
 RUN set -x \
-    && apk add --no-cache wget libressl tar tzdata bash fontconfig ttf-dejavu \
+    && apk add --no-cache wget libressl tar tzdata bash fontconfig ttf-dejavu dejavu-serif-fonts \
     && mkdir -p "${CONFLUENCE_HOME}" \
     && mkdir -p "${CONFLUENCE_INSTALL}/conf" \
     && wget -O "atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz" --no-verbose "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz" \

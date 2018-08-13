@@ -1,6 +1,6 @@
-FROM openjdk:8-alpine
+FROM anapsix/alpine-java:8u172b11_jdk-dcevm_unlimited
 
-ENV CONFLUENCE_VERSION=6.7.1 \
+ENV CONFLUENCE_VERSION=6.10.2 \
     CONFLUENCE_HOME=/var/atlassian/application-data/confluence \
     CONFLUENCE_INSTALL=/opt/atlassian/confluence \
     MYSQL_VERSION=5.1.38 \

@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8u172b11_jdk-dcevm_unlimited
+FROM anapsix/alpine-java:8_jdk-dcevm_unlimited
 
 ENV CONFLUENCE_VERSION=6.10.2 \
     CONFLUENCE_HOME=/var/atlassian/application-data/confluence \
